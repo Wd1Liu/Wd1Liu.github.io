@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Curriculum vitae — Bingyi (Edison) Liu" />
+  <title>CV · Bingyi (Edison) Liu</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .cv-shell{width:min(960px,calc(100% - 40px));margin:0 auto;padding:72px 0 96px}.cv-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}.cv-nav a{font-weight:700}.cv-header{padding-bottom:28px;border-bottom:1px solid var(--line)}.cv-header h1{margin:0;font-size:clamp(2.8rem,7vw,5rem);letter-spacing:-.06em;line-height:.98}.cv-header p{margin:12px 0 0;color:var(--muted)}.cv-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;font-size:.9rem}.cv-section{padding:32px 0;border-bottom:1px solid var(--line)}.cv-section h2{margin:0 0 20px;font-size:.82rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase}.cv-entry{display:grid;grid-template-columns:1fr auto;gap:10px 26px;margin:0 0 27px}.cv-entry:last-child{margin-bottom:0}.cv-entry h3{margin:0;font-size:1.14rem;letter-spacing:-.02em}.cv-entry .date{color:var(--muted);font-size:.84rem;white-space:nowrap}.cv-entry .role{grid-column:1/-1;margin:-5px 0 3px;color:var(--muted);font-size:.91rem}.cv-entry .project{grid-column:1/-1;margin:8px 0 4px;font-weight:720}.cv-entry ul{grid-column:1/-1;margin:6px 0 0;padding-left:19px;color:var(--muted)}.cv-entry li{margin:5px 0}.cv-line{color:var(--muted);margin:4px 0}.cv-tags{display:flex;flex-wrap:wrap;gap:8px}.cv-tags span{border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:.78rem}.cv-print{margin-top:28px}.cv-print button{font:inherit;cursor:pointer}@media print{.site-header,.cv-nav,.cv-print{display:none!important}.cv-shell{width:100%;padding:0}.cv-section{break-inside:avoid}.cv-entry{break-inside:avoid}body{background:#fff;color:#111}.cv-header{padding-top:0}}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="shell nav-wrap"><a class="brand" href="index.html">Edison Liu</a><nav class="nav"><a href="index.html#research">Research</a><a href="index.html#experience">Experience</a><a href="index.html#about">About</a></nav></div></header>
+<main class="cv-shell">
+  <div class="cv-nav"><a href="index.html">← Back to website</a><span class="eyebrow" style="margin:0">Curriculum Vitae</span></div>
+  <section class="cv-header">
+    <h1>Bingyi (Edison) Liu</h1>
+    <p>Computer Science, Purdue University · GPA 3.91/4.00 · Expected December 2026</p>
+    <p><strong>Research Interests:</strong> Human–AI Collaboration · Spatial Agents · Egocentric AI · XR & Wearables</p>
+    <div class="cv-links"><a href="mailto:liu3932@purdue.edu">liu3932@purdue.edu</a><a href="https://github.com/Wd1Liu" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/bingyi-liu-a629382b0" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+  </section>
+
+  <section class="cv-section"><h2>Education</h2>
+    <div class="cv-entry"><h3>Purdue University</h3><div class="date">Expected Dec. 2026</div><div class="role">B.S. Computer Science · West Lafayette, Indiana</div><div class="role">Purdue Summer Undergraduate Research Fellowship ($6,500); Dean's List; Semester Honors; Teaching Assistant for CS 18000; Executive Director, Purdue Computer Pioneers Union</div></div>
+  </section>
+
+  <section class="cv-section"><h2>Research Experience</h2>
+    <div class="cv-entry"><h3>Purdue University · C Design Lab</h3><div class="date">Oct. 2025 — Present</div><div class="role">Undergraduate Research Assistant · Advised by Prof. Karthik Ramani</div>
+      <div class="project">CoReason: Situated Human-Agent Co-Reasoning in AR · <em>Under Review</em></div>
+      <ul><li>Formulated a situated co-reasoning framework around complementary participation, shared reasoning ground, and mixed initiative, externalizing observations, interpretations, evidence, reasoning progression, and human contributions as inspectable AR elements.</li><li>Architected an event-sourced reasoning runtime integrating task-guided keyframes, VLM semantics, YOLOE-Seg localization, persistent SceneGraph memory, and structured information needs to determine when to perceive, retrieve spatial evidence, solicit user input, or conclude.</li><li>Implemented bidirectional user Intervene / agent Solicit interaction with provenance-aware evidence dependencies and reliability-aware 2D/3D annotations in Unity/Quest.</li></ul>
+      <div class="project">SituatAR: In-Situ Authoring of Embodied Human-Agent Interaction in AR · <em>Under Review</em></div>
+      <ul><li>Designed a dual-view situated authoring framework coupling in-situ interaction specification with world-in-miniature overview editing, introducing an experience–episode–unit interaction graph for hierarchical task composition and contextual transitions.</li><li>Built an LLM-mediated authoring and runtime stack in Unity/Meta Quest that grounds speech, gaze, pointing, and user pose into spatial references and executable agent behaviors.</li><li>Evaluated the workflow with 12 participants; SituatAR achieved a 79.8 ± 10.8 SUS score and 97%/100%/99% valid-output rates across three system modules.</li></ul>
+    </div>
+
+    <div class="cv-entry"><h3>Purdue University · Elmore Family School of ECE</h3><div class="date">Feb. 2025 — Present</div><div class="role">Research Assistant · Advised by Prof. Yung-Hsiang Lu</div>
+      <div class="project">Hardware-Aware Benchmarking of Text-to-Image Generative Models</div><ul><li>Built a benchmark for seven text-to-image models spanning diffusion, GAN, and autoregressive families, with task-specific semantic evaluators and deployment profiling on NVIDIA Jetson Orin.</li><li>Compared semantic accuracy, perceptual quality, diversity, end-to-end latency, and peak GPU-memory usage.</li></ul>
+      <div class="project">Accuracy-Oriented 3D Piano Hand Motion Generation</div><ul><li>Formulated MIDI-conditioned bimanual motion generation as constrained flow matching around time-aligned key-contact targets with fingertip-contact, pose-prior, temporal-smoothness, and motion-preservation objectives.</li><li>Designed a hard-passage evaluation protocol for large leaps, dense chords, and rapid transitions using key-hit F1, fingertip-to-key distance, contact-timing error, wrong-key margin, MPJPE, and jitter.</li></ul>
+    </div>
+
+    <div class="cv-entry"><h3>Purdue VIPER Lab</h3><div class="date">Aug. — Dec. 2024</div><div class="role">VIP Course · West Lafayette, Indiana</div><ul><li>Benchmarked five CNN backbones for real-time mobile fruit recognition, achieving 95% classification accuracy with under 200 ms image-processing latency in controlled tests.</li><li>Built an Android data-capture and asynchronous upload pipeline sustaining over 99% successful uploads.</li></ul></div>
+  </section>
+
+  <section class="cv-section"><h2>Industry Experience</h2>
+    <div class="cv-entry"><h3>Stealth AI Startup</h3><div class="date">Aug. 2026 — Present</div><div class="role">Egocentric AI Research Intern · Supervised by Dr. Jingkang Yang</div><ul><li>Researching long-horizon egocentric video understanding and memory for intelligent eyewear, structuring continuous visual-audio observations into event-centric representations.</li><li>Developing a tool-augmented long-video reasoning pipeline with hierarchical retrieval and retrieve–inspect–verify planning for grounded event recall, temporal localization, and multimodal QA.</li><li>Contributing to egocentric data curation, post-training, benchmark design, and deployment-oriented accuracy–latency evaluation.</li></ul></div>
+
+    <div class="cv-entry"><h3>Eyedaptic</h3><div class="date">Summers 2025 & 2026</div><div class="role">AI Software Engineer Intern · Laguna Hills, California</div><div class="project">Eva YouTube Video Assistant Agent for AR Glasses</div><ul><li>Engineered a voice-first video agent using Gemini Live function calling and 20+ typed tools with hierarchical intent routing, multi-turn refinement, history resume, and playback control.</li><li>Designed retrieval and personalization using the YouTube Data API, deterministic multi-signal reranking, SQLite behavioral memory, and channel-scoped context; improved mean top-1 score from 0.182 to 0.604 on a 10-scenario evaluation.</li></ul><div class="project">Multimodal AR-Glasses Assistant</div><ul><li>Developed a visual/OCR-grounded assistant for low-vision users; a multithreaded streaming-PCM pipeline reduced time-to-first-speech by 2–3 s and long-read latency by up to 80%.</li></ul></div>
+
+    <div class="cv-entry"><h3>Tongcheng Travel</h3><div class="date">Jun. — Aug. 2023</div><div class="role">Software Engineer Intern · Suzhou, China</div><ul><li>Implemented concurrent order creation, inventory deduction, and idempotency with Spring Boot, Redis Lua, MySQL optimistic locking, and request keys.</li><li>Designed cache-aside and pre-warming for event/seat queries, maintaining approximately 110 ms p95 latency under peak-load tests.</li></ul></div>
+  </section>
+
+  <section class="cv-section"><h2>Selected Project</h2><div class="cv-entry"><h3>SEEAgent</h3><div class="date">Smart Glasses</div><div class="role">Multimodal Perception-to-Action Agent</div><ul><li>Prototyped a closed-loop glasses agent that grounds photo/video plus text/voice requests, localizes task-relevant entities, retrieves cross-frame context, and compiles checkpointed LangGraph/MCP tool plans with provenance-aware verification.</li></ul></div></section>
+
+  <section class="cv-section"><h2>Technical Skills</h2><div class="cv-tags"><span>Python</span><span>C/C++</span><span>C#</span><span>Java/Kotlin</span><span>Swift</span><span>PyTorch</span><span>Transformers</span><span>OpenCV</span><span>TensorRT</span><span>VLMs</span><span>Visual Grounding</span><span>RAG / Memory</span><span>LangGraph</span><span>MCP</span><span>Unity</span><span>Meta Quest</span><span>Android / iOS</span><span>Jetson Orin</span><span>Docker</span><span>Linux / SLURM</span></div></section>
+
+  <div class="cv-print"><button class="button secondary" onclick="window.print()">Print / Save as PDF</button></div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
