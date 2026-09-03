@@ -97,6 +97,16 @@ body {
   background: #171717;
 }
 
+:root[data-theme="dark"] .contact-card {
+  background: #2a2a2a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .contact-card {
+    background: #2a2a2a;
+  }
+}
+
 .contact-card .eyebrow {
   color: #d8d8d8;
 }
@@ -111,13 +121,6 @@ body {
   color: #ffffff;
   border-color: rgba(255,255,255,.24);
   background: rgba(255,255,255,.06);
-}
-
-:root[data-theme="dark"] .contact-card,
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .contact-card {
-    background: #2a2a2a;
-  }
 }
 
 .theme-toggle {
