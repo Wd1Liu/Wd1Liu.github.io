@@ -2,7 +2,7 @@
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  // The site stays monochrome; real brand marks keep their own colors.
+  // The page stays mostly black / white / gray; real brand marks keep their colors.
   const style = document.createElement('style');
   style.textContent = `
     .brand-mark,
@@ -12,8 +12,38 @@
       filter: none !important;
       opacity: 1 !important;
     }
+    .profile-brand-icon {
+      width: 15px;
+      height: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 6px;
+      font-size: 15px;
+      line-height: 1;
+      flex: 0 0 15px;
+    }
+    .profile-brand-icon.linkedin { color: #0A66C2; }
+    .profile-brand-icon.github { color: #181717; }
   `;
   document.head.appendChild(style);
+
+  // Use Bootstrap's vector brand glyphs for the two profile links so they do not
+  // depend on a third-party image URL at runtime.
+  const replaceProfileLogo = (selector, iconClass, extraClass) => {
+    const link = document.querySelector(selector);
+    if (!link) return;
+    const oldImg = link.querySelector('img');
+    if (oldImg) {
+      const icon = document.createElement('i');
+      icon.className = `bi ${iconClass} profile-brand-icon ${extraClass}`;
+      icon.setAttribute('aria-hidden', 'true');
+      oldImg.replaceWith(icon);
+    }
+  };
+
+  replaceProfileLogo('.profile-links a[href*="github.com"]', 'bi-github', 'github');
+  replaceProfileLogo('.profile-links a[href*="linkedin.com"]', 'bi-linkedin', 'linkedin');
 
   const brandSources = {
     Python: 'https://cdn.simpleicons.org/python/3776AB',
@@ -27,10 +57,4 @@
     const src = brandSources[img.alt];
     if (src) img.src = src;
   });
-
-  const github = document.querySelector('.profile-links a[href*="github.com"] img');
-  if (github) github.src = 'https://cdn.simpleicons.org/github/181717';
-
-  const linkedin = document.querySelector('.profile-links a[href*="linkedin.com"] img');
-  if (linkedin) linkedin.src = 'https://cdn.simpleicons.org/linkedin/0A66C2';
 })();
