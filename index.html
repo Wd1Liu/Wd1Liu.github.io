@@ -22,6 +22,9 @@
     .profile-brand-icon.linkedin{color:#0A66C2}
     .context-line .brand-mark{width:13px;height:13px;margin-right:5px}
     .experience-item h3 .brand-mark{width:17px;height:17px;margin-right:8px}
+    .profile-photo{display:block;width:160px;height:225px;object-fit:cover;margin:0 0 20px;border:1px solid var(--line);background:var(--surface-2)}
+    .intro-copy.secondary{margin-top:10px}
+    @media(max-width:900px){.profile-photo{width:145px;height:auto}}
   </style>
 </head>
 <body>
@@ -45,7 +48,8 @@
       <div class="intro-main">
         <h1>Bingyi Liu <span>(Edison)</span></h1>
         <p class="research-title">Human-Centered AI for the Physical World</p>
-        <p class="intro-copy">I'm a CS undergraduate at Purdue. I build AI systems around AR, smart glasses, and egocentric video—mostly things that have to understand a real environment and work with a person in it.</p>
+        <p class="intro-copy">I'm a CS undergraduate at Purdue. I work on AI agents that understand the world from a person's point of view—from 3D spatial context in AR to continuous egocentric video—and use that context to reason, remember, and act with people in the loop.</p>
+        <p class="intro-copy secondary">I've worked on AR co-reasoning and agent authoring, long-horizon egocentric memory, smart-glasses agents, and 3D physical intelligence. I think smart glasses become especially interesting as agents get stronger: first-person context plus a few words or gestures can turn very small interactions into useful action. Better representations of geometry, state, and interaction also feel like a bridge toward broader embodied intelligence.</p>
         <p class="identity-line">B.S. Computer Science, Purdue University · Expected Dec. 2026 · GPA 3.91 / 4.00</p>
         <div class="profile-links" aria-label="Profile links">
           <a href="mailto:liu3932@purdue.edu"><i class="bi bi-envelope"></i>Email</a>
@@ -55,18 +59,19 @@
         </div>
       </div>
 
-      <aside class="now-panel" aria-label="A few things about me">
+      <aside class="now-panel" aria-label="How I think about people, products, and AI">
+        <img class="profile-photo" src="assets/profile-photo.svg" alt="Bingyi Liu (Edison)" />
         <div class="now-item">
           <span>People</span>
-          <p>People are different, but a lot of psychological patterns repeat—what draws attention, how expectations form, when we hesitate, and when trust starts to break.</p>
+          <p>I start with people. Attention, expectation, habit, trust, and hesitation repeat across contexts, and I like understanding those patterns before designing around them.</p>
         </div>
         <div class="now-item">
           <span>Products</span>
-          <p>I like products because those patterns become concrete. A good product should work with how people naturally think instead of making them learn the system's logic.</p>
+          <p>I like products that turn complex technology into something that feels obvious. The interesting part is often deciding what the user should never have to think about.</p>
         </div>
         <div class="now-item">
-          <span>Building</span>
-          <p>I like testing those assumptions by building the whole thing. Once something runs on a real device, the wrong model of the user usually shows up fast.</p>
+          <span>AI</span>
+          <p>I want to stay on both sides of the AI shift: thinking seriously about what these systems should become, and keeping the technical depth to build, test, and challenge those ideas myself.</p>
         </div>
       </aside>
     </section>
