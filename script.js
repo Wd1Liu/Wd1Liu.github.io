@@ -113,7 +113,9 @@
     }
 
     if (title === 'Contact-aware 3D piano hand motion generation') {
+      if (h3) h3.textContent = 'Accuracy-oriented 3D piano hand motion generation';
       if (metaSpans[1]) metaSpans[1].textContent = '2025 — May 2026';
+      if (role) role.innerHTML = '<strong>My role:</strong> project lead; problem formulation, target representation, learning objectives, event-local refinement, and task-specific evaluation.';
     }
 
     if (title === 'Hardware-aware evaluation of text-to-image models') {
@@ -175,6 +177,7 @@
       if (date) date.textContent = 'Feb. 2025 — May 2026';
       const projects = entry.querySelectorAll('.project');
       if (projects[0]) projects[0].textContent = 'Compositional and Hardware-Aware Evaluation of Text-to-Image Models';
+      if (projects[1]) projects[1].innerHTML = 'Accuracy-Oriented 3D Piano Hand Motion Generation <span class="review">[Project Lead]</span>';
       const items = entry.querySelectorAll('li');
       if (items[0]) items[0].textContent = 'Designed a compositional benchmark across seven text-to-image models; fine-tuned CLIP on the project dataset into a task-specific semantic-alignment classifier.';
       if (items[1]) items[1].textContent = 'Engineered a reproducible Jetson Orin inference/profiling stack with standardized warm-up, CUDA-synchronized timing, mixed precision, and GPU-memory measurement.';
