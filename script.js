@@ -2,7 +2,6 @@
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  // The page stays mostly black / white / gray; real brand marks keep their colors.
   const style = document.createElement('style');
   style.textContent = `
     .brand-mark,
@@ -34,6 +33,17 @@
       border: 1px solid var(--line);
       background: var(--surface-2);
     }
+    .direction-note {
+      margin-top: 22px;
+      padding: 14px 16px;
+      border-left: 2px solid var(--text);
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: .81rem;
+      line-height: 1.55;
+    }
+    .direction-note strong { color: var(--text); }
+    .side-project-title { font-weight: 680; color: var(--text); }
     @media (max-width: 900px) {
       .profile-photo { width: 145px; height: auto; }
     }
@@ -62,7 +72,6 @@
     Android: 'https://cdn.simpleicons.org/android/3DDC84',
     NVIDIA: 'https://cdn.simpleicons.org/nvidia/76B900'
   };
-
   document.querySelectorAll('.tool-logos img').forEach((img) => {
     const src = brandSources[img.alt];
     if (src) img.src = src;
@@ -85,83 +94,186 @@
     }
   });
 
-  // Homepage: make the through-line first-person understanding rather than
-  // repeating visual grounding as a research identity.
+  // Homepage through-line: first-person intelligence + agents in the physical world.
   const intro = document.querySelector('.intro-copy');
   if (intro) {
-    intro.textContent = "I'm a CS undergraduate at Purdue. I'm interested in how AI understands the world from a person's point of view—from 3D spatial context in AR to continuous egocentric video—and how that understanding can support people in the moment.";
+    intro.textContent = "I'm a CS undergraduate at Purdue. I work on AI agents that understand the world from a person's point of view—from 3D spatial context in AR to continuous egocentric video—and use that context to reason, remember, and act with people in the loop.";
   }
 
-  const perceive = [...document.querySelectorAll('.lens-grid > div')]
-    .find((el) => el.querySelector('strong')?.textContent.trim() === 'Perceive');
-  if (perceive) {
-    const p = perceive.querySelector('p');
-    if (p) p.textContent = 'Understand what a person is seeing, from 3D spatial context to continuous first-person video.';
-  }
+  const lensCopy = {
+    Perceive: 'Build a usable model of what the wearer sees, from 3D geometry and object state to continuous first-person video.',
+    Remember: 'Carry forward the events, entities, and state changes that matter as a task or experience unfolds.',
+    Reason: 'Turn first-person context into decisions, tool use, and next actions rather than one-shot answers.',
+    Collaborate: 'Keep people in control through lightweight input, correction, and shared task state.'
+  };
+  [...document.querySelectorAll('.lens-grid > div')].forEach((el) => {
+    const label = el.querySelector('strong')?.textContent.trim();
+    const p = el.querySelector('p');
+    if (label && p && lensCopy[label]) p.textContent = lensCopy[label];
+  });
 
   const researchRows = [...document.querySelectorAll('.research-row')];
   researchRows.forEach((row) => {
-    const title = row.querySelector('h3')?.textContent.trim();
+    const h3 = row.querySelector('h3');
+    const title = h3?.textContent.trim();
+    const question = row.querySelector('.research-question');
+    const bodyParagraphs = row.querySelectorAll('.research-body > p');
+    const role = row.querySelector('.role-line');
+    const metaSpans = row.querySelectorAll('.research-meta > span');
 
     if (title === 'Situated human–AI reasoning in AR') {
-      const bodyParagraphs = row.querySelectorAll('.research-body > p');
+      if (question) question.textContent = 'How can an AR agent reason over the same physical task as the wearer without hiding the state it is using?';
       if (bodyParagraphs[1]) {
-        bodyParagraphs[1].textContent = "I built a Quest-based prototype that combines the wearer's first-person view with spatial pose/depth information to maintain an explicit task state of observations, interpretations, and user corrections. The goal is not just to detect objects, but to keep the agent's understanding of the surrounding scene visible and revisable as the task changes.";
+        bodyParagraphs[1].textContent = "I built a stateful, tool-using reasoning agent that combines first-person scene context with persistent spatial state. It can choose when to observe, query spatial information, or ask the wearer, while separating generative reasoning from deterministic execution so corrections revise only the reasoning branches that depend on them.";
       }
-      const role = row.querySelector('.role-line');
-      if (role) role.innerHTML = '<strong>My role:</strong> research framing, state representation, system architecture, first-person scene understanding, interaction design, Unity/Quest implementation, and study instrumentation.';
+      if (role) role.innerHTML = '<strong>My role:</strong> research framing, agent architecture, state/memory design, first-person 2D/3D scene understanding, human-in-the-loop interaction, Unity/Quest implementation, and study instrumentation.';
     }
 
-    if (title === 'Contact-aware 3D piano hand motion generation' ||
-        title === 'Hardware-aware evaluation of text-to-image models') {
-      const metaSpans = row.querySelectorAll('.research-meta > span');
+    if (title === 'In-situ authoring for embodied agents in AR') {
+      if (question) question.textContent = 'How can people author spatial agent behavior without translating what they mean in the room into low-level scripts?';
+      if (bodyParagraphs[1]) {
+        bodyParagraphs[1].textContent = 'I introduced an experience–episode–unit interaction graph for representing spatial context, agent behavior, and conditional transitions, paired with a dual-view AR workflow for in-situ authoring and world-in-miniature overview. A multimodal compiler/runtime turns speech, gaze, pointing, and pose into executable agent behavior.';
+      }
+      if (role) role.innerHTML = '<strong>My role:</strong> interaction representation, authoring workflow, multimodal compiler/runtime, Unity/Meta Quest implementation, and evaluation. A two-session study with 12 participants achieved a 79.8 ± 10.8 SUS score.';
+    }
+
+    if (title === 'Contact-aware 3D piano hand motion generation') {
       if (metaSpans[1]) metaSpans[1].textContent = '2025 — May 2026';
+    }
+
+    if (title === 'Hardware-aware evaluation of text-to-image models') {
+      if (h3) h3.textContent = 'Compositional and hardware-aware evaluation of text-to-image models';
+      if (metaSpans[1]) metaSpans[1].textContent = '2025 — May 2026';
+      if (question) question.textContent = 'How much of a model’s apparent image quality survives when we test compositional correctness and real edge-inference cost?';
+      if (bodyParagraphs[1]) {
+        bodyParagraphs[1].textContent = 'I benchmarked seven generators across object, count, attribute, spatial-relation, and style factors, fine-tuned CLIP into a task-specific semantic-alignment classifier, and built a reproducible Jetson Orin inference/profiling stack with standardized warm-up, CUDA-synchronized timing, mixed precision, and GPU-memory measurement.';
+      }
+      if (role) role.innerHTML = '<strong>My role:</strong> benchmark design, prompt taxonomy, CLIP adaptation, automated evaluation, edge deployment, and inference profiling.';
+    }
+
+    if (title === 'Voice-first video assistance for AR glasses') {
+      if (question) question.textContent = 'What changes when a voice assistant on glasses can keep state, use tools, and remember what the user tends to choose?';
+      if (bodyParagraphs[1]) {
+        bodyParagraphs[1].textContent = "At Eyedaptic, I architected a stateful, tool-using voice agent for AR glasses, orchestrating 20+ typed tools through Gemini Live for search, refinement, selection, history resume, and playback. I also built a retrieval/personalization layer with multi-signal reranking, channel-aware context, and local behavioral memory.";
+      }
+      if (role) role.innerHTML = '<strong>My role:</strong> agent/tool architecture, retrieval and ranking, personalization memory, Android/backend integration, and evaluation. Mean top-1 ranking score improved from 0.182 to 0.604 across a 10-scenario test set.';
     }
   });
 
   const prototype = document.querySelector('.prototype-note');
   if (prototype) {
-    prototype.innerHTML = '<i class="bi bi-tools"></i><strong>Prototype work.</strong> I also build small smart-glasses agents to test ideas around first-person scene understanding, cross-frame memory, and tool use before deciding which ideas are worth pushing further.';
+    prototype.className = 'direction-note';
+    prototype.innerHTML = '<strong>Where I\'m pushing next.</strong> I\'m especially interested in two directions: <strong>3D physical intelligence</strong>—giving agents representations of geometry, state, and interaction that may also transfer toward embodied intelligence—and <strong>smart-glasses agents</strong>, where always-available first-person context plus very lightweight voice or gesture input can make capable agents useful without a screen-heavy interface.';
   }
 
+  // Experience summary updates.
   document.querySelectorAll('.experience-item').forEach((item) => {
     const heading = item.querySelector('h3')?.textContent || '';
     if (heading.includes('C Design Lab')) {
       const desc = item.querySelector('div:last-child > p:last-child');
-      if (desc) desc.textContent = 'AR, human–AI interaction, first-person scene understanding, and agent authoring.';
+      if (desc) desc.textContent = 'Human–AI reasoning, AR agents, first-person/3D scene understanding, and spatial interaction.';
     }
     if (heading.includes('Elmore Family School of ECE')) {
       const when = item.querySelector('.experience-when');
       if (when) when.textContent = 'Feb. 2025 — May 2026';
     }
+    if (heading.includes('Eyedaptic')) {
+      const desc = item.querySelector('div:last-child > p:last-child');
+      if (desc) desc.textContent = 'Stateful voice agents and real-time multimodal assistance for AR glasses.';
+    }
   });
 
-  // Web CV: keep the same date and reduce repeated visual-grounding wording.
+  // About: preserve the psychology/product angle, while making the smart-glasses bet explicit but not promotional.
+  const aboutCopy = document.querySelector('.about-copy');
+  if (aboutCopy) {
+    const paras = [...aboutCopy.children].filter((el) => el.tagName === 'P' && !el.classList.contains('eyebrow'));
+    if (paras[0]) paras[0].textContent = "I'm probably more interested in products than in any one technology. What interests me most is the psychology underneath them: people differ, but patterns in attention, expectation, habit, trust, and hesitation repeat more often than we think.";
+    if (paras[1]) paras[1].textContent = "I usually start by building a rough model of the person before the interface—what they are likely to notice, assume, ignore, or do next—and then ask what the product should make easier or disappear entirely.";
+    if (paras[2]) paras[2].textContent = "That is part of why smart glasses interest me. If agents become good enough at understanding first-person context and using tools, a very small amount of input could unlock useful experiences without repeatedly pulling someone back to a screen.";
+  }
+
+  // Web CV: align major content with the current application CV.
+  const cvHeaderResearch = [...document.querySelectorAll('.cv-header p')].find((p) => p.textContent.includes('Research:'));
+  if (cvHeaderResearch) cvHeaderResearch.innerHTML = '<strong>Research:</strong> Human–AI Interaction · Spatial &amp; Egocentric AI · XR &amp; Wearable Computing';
+
   document.querySelectorAll('.cv-entry').forEach((entry) => {
     const heading = entry.querySelector('h3')?.textContent || '';
+
+    if (heading === 'Purdue University') {
+      const roles = entry.querySelectorAll('.role');
+      if (roles[0]) roles[0].textContent = 'B.S. Computer Science, Machine Intelligence Track · West Lafayette, Indiana';
+    }
 
     if (heading.includes('Elmore Family School of ECE')) {
       const date = entry.querySelector('.date');
       if (date) date.textContent = 'Feb. 2025 — May 2026';
+      const projects = entry.querySelectorAll('.project');
+      if (projects[0]) projects[0].textContent = 'Compositional and Hardware-Aware Evaluation of Text-to-Image Models';
+      const items = entry.querySelectorAll('li');
+      if (items[0]) items[0].textContent = 'Designed a compositional benchmark across seven text-to-image models; fine-tuned CLIP on the project dataset into a task-specific semantic-alignment classifier.';
+      if (items[1]) items[1].textContent = 'Engineered a reproducible Jetson Orin inference/profiling stack with standardized warm-up, CUDA-synchronized timing, mixed precision, and GPU-memory measurement.';
     }
 
     if (heading.includes('C Design Lab')) {
       const items = entry.querySelectorAll('li');
-      items.forEach((li) => {
-        if (li.textContent.includes('spatially grounded co-reasoning prototype')) {
-          li.textContent = 'Developed a co-reasoning prototype that maintains an explicit, revisable understanding of the wearer\'s surrounding task environment across first-person visual input and spatial context.';
-        }
-        if (li.textContent.includes('egocentric VLM semantics')) {
-          li.textContent = 'Combined first-person visual semantics with Quest pose/depth geometry and persistent scene references so the agent can reason over what the wearer is seeing as the task evolves.';
-        }
-        if (li.textContent.includes('perception-grounding pipeline')) {
-          li.textContent = 'Owned research framing, reasoning/state representation, system architecture, first-person scene understanding, interaction design, Unity/Quest implementation, and study instrumentation.';
-        }
-      });
+      if (items[0]) items[0].textContent = 'Architected a stateful, tool-using reasoning agent for situated AR tasks, separating generative reasoning from deterministic execution while maintaining persistent spatial task state.';
+      if (items[1]) items[1].textContent = 'Built persistent spatial state/memory over first-person visual context and Quest pose/depth geometry, with versioned updates that prevent stale or duplicate actions from committing.';
+      if (items[2]) items[2].textContent = 'Designed a human-in-the-loop revision mechanism that lets the agent solicit missing knowledge and propagates user corrections only through dependent reasoning branches.';
+    }
+
+    if (heading.includes('VIPER Lab')) {
+      const items = entry.querySelectorAll('li');
+      if (items[0]) items[0].textContent = 'Designed an end-to-end computer-vision pipeline for fruit recognition, benchmarking five CNN backbones while tuning resolution and preprocessing (Sobel filtering, resizing, RGB normalization); achieved 95% accuracy with under 200 ms processing time.';
+      if (items[1]) items[1].textContent = 'Built a fault-tolerant Android data pipeline with asynchronous capture/upload and retry-aware execution, sustaining over 99% successful uploads.';
+    }
+
+    if (heading === 'Eyedaptic') {
+      const projects = entry.querySelectorAll('.project');
+      if (projects[0]) projects[0].textContent = 'Eva: Stateful Voice Agent for AR Glasses';
+      if (projects[1]) projects[1].textContent = 'Real-Time Multimodal Agent Runtime';
+      const items = entry.querySelectorAll('li');
+      if (items[0]) items[0].textContent = 'Architected a stateful, tool-using voice agent for Eyedaptic\'s Android AR-glasses platform, orchestrating 20+ typed tools through Gemini Live for search, refinement, selection, resume, and playback control.';
+      if (items[1]) items[1].textContent = 'Built retrieval and personalization with multi-signal reranking, channel-aware context, and SQLite behavioral memory; improved mean top-1 ranking score from 0.182 to 0.604 across 10 evaluation scenarios.';
+      if (items[2]) items[2].textContent = 'Engineered a real-time multimodal agent runtime coupling first-person visual/OCR perception with concurrent response generation, interruptible streaming PCM, and TaskToken cancellation; reduced time-to-first-speech by 2–3 s and long-form latency by up to 80%.';
     }
   });
 
-  document.querySelectorAll('.cv-tags span').forEach((tag) => {
-    if (tag.textContent.trim() === 'Visual Grounding') tag.textContent = 'Egocentric Video';
-  });
+  // Add side projects to the web CV if they are not already present.
+  const cvSections = [...document.querySelectorAll('.cv-section')];
+  const technicalSection = cvSections.find((s) => s.querySelector('h2')?.textContent.trim() === 'Technical Skills');
+  const hasSelectedProjects = cvSections.some((s) => s.querySelector('h2')?.textContent.trim() === 'Selected Projects');
+  if (technicalSection && !hasSelectedProjects) {
+    const section = document.createElement('section');
+    section.className = 'cv-section';
+    section.innerHTML = `
+      <h2>Selected Projects</h2>
+      <div class="cv-entry">
+        <h3>SEEAgent: Egocentric Perception-to-Action Agent for Smart Glasses</h3>
+        <div class="role">Stateful, tool-using egocentric agent with cross-frame memory, checkpointed planning, and result verification for interruptible multi-step tasks.</div>
+      </div>
+      <div class="cv-entry">
+        <h3>BeatDopamine: Adaptive Agent for Attention and Self-Regulation</h3>
+        <div class="role">Adaptive behavioral agent that personalizes task difficulty and intervention timing, then gradually withdraws scaffolding as sustained attention and self-directed control improve.</div>
+      </div>`;
+    technicalSection.parentNode.insertBefore(section, technicalSection);
+  }
+
+  const cvTags = document.querySelector('.cv-tags');
+  if (cvTags) {
+    cvTags.innerHTML = [
+      'Python', 'C/C++', 'C#', 'Java/Kotlin', 'Swift', 'Go',
+      'PyTorch', 'Transformers', 'OpenCV', 'CUDA', 'TensorRT',
+      'VLMs', 'RAG / Memory', 'Tool Calling', 'MCP', 'LangGraph',
+      'Linux / SLURM', 'Docker', 'Kubernetes', 'FastAPI', 'Redis',
+      'Unity', 'Android / iOS', 'NVIDIA Jetson', 'AWS / GCP / Azure'
+    ].map((t) => `<span>${t}</span>`).join('');
+
+    if (!cvTags.parentElement.querySelector('.ai-native-note')) {
+      const note = document.createElement('p');
+      note.className = 'role ai-native-note';
+      note.style.marginTop = '12px';
+      note.innerHTML = '<em>AI-native builder; I work with Codex and Claude Code as day-to-day collaborators.</em>';
+      cvTags.after(note);
+    }
+  }
 })();
