@@ -28,8 +28,6 @@
   `;
   document.head.appendChild(style);
 
-  // Use Bootstrap's vector brand glyphs for the two profile links so they do not
-  // depend on a third-party image URL at runtime.
   const replaceProfileLogo = (selector, iconClass, extraClass) => {
     const link = document.querySelector(selector);
     if (!link) return;
@@ -56,5 +54,85 @@
   document.querySelectorAll('.tool-logos img').forEach((img) => {
     const src = brandSources[img.alt];
     if (src) img.src = src;
+  });
+
+  // Homepage: make the through-line first-person understanding rather than
+  // repeating visual grounding as a research identity.
+  const intro = document.querySelector('.intro-copy');
+  if (intro) {
+    intro.textContent = "I'm a CS undergraduate at Purdue. I'm interested in how AI understands the world from a person's point of view—from 3D spatial context in AR to continuous egocentric video—and how that understanding can support people in the moment.";
+  }
+
+  const perceive = [...document.querySelectorAll('.lens-grid > div')]
+    .find((el) => el.querySelector('strong')?.textContent.trim() === 'Perceive');
+  if (perceive) {
+    const p = perceive.querySelector('p');
+    if (p) p.textContent = 'Understand what a person is seeing, from 3D spatial context to continuous first-person video.';
+  }
+
+  const researchRows = [...document.querySelectorAll('.research-row')];
+  researchRows.forEach((row) => {
+    const title = row.querySelector('h3')?.textContent.trim();
+
+    if (title === 'Situated human–AI reasoning in AR') {
+      const bodyParagraphs = row.querySelectorAll('.research-body > p');
+      if (bodyParagraphs[1]) {
+        bodyParagraphs[1].textContent = "I built a Quest-based prototype that combines the wearer's first-person view with spatial pose/depth information to maintain an explicit task state of observations, interpretations, and user corrections. The goal is not just to detect objects, but to keep the agent's understanding of the surrounding scene visible and revisable as the task changes.";
+      }
+      const role = row.querySelector('.role-line');
+      if (role) role.innerHTML = '<strong>My role:</strong> research framing, state representation, system architecture, first-person scene understanding, interaction design, Unity/Quest implementation, and study instrumentation.';
+    }
+
+    if (title === 'Contact-aware 3D piano hand motion generation' ||
+        title === 'Hardware-aware evaluation of text-to-image models') {
+      const metaSpans = row.querySelectorAll('.research-meta > span');
+      if (metaSpans[1]) metaSpans[1].textContent = '2025 — May 2026';
+    }
+  });
+
+  const prototype = document.querySelector('.prototype-note');
+  if (prototype) {
+    prototype.innerHTML = '<i class="bi bi-tools"></i><strong>Prototype work.</strong> I also build small smart-glasses agents to test ideas around first-person scene understanding, cross-frame memory, and tool use before deciding which ideas are worth pushing further.';
+  }
+
+  document.querySelectorAll('.experience-item').forEach((item) => {
+    const heading = item.querySelector('h3')?.textContent || '';
+    if (heading.includes('C Design Lab')) {
+      const desc = item.querySelector('div:last-child > p:last-child');
+      if (desc) desc.textContent = 'AR, human–AI interaction, first-person scene understanding, and agent authoring.';
+    }
+    if (heading.includes('Elmore Family School of ECE')) {
+      const when = item.querySelector('.experience-when');
+      if (when) when.textContent = 'Feb. 2025 — May 2026';
+    }
+  });
+
+  // Web CV: keep the same date and reduce repeated visual-grounding wording.
+  document.querySelectorAll('.cv-entry').forEach((entry) => {
+    const heading = entry.querySelector('h3')?.textContent || '';
+
+    if (heading.includes('Elmore Family School of ECE')) {
+      const date = entry.querySelector('.date');
+      if (date) date.textContent = 'Feb. 2025 — May 2026';
+    }
+
+    if (heading.includes('C Design Lab')) {
+      const items = entry.querySelectorAll('li');
+      items.forEach((li) => {
+        if (li.textContent.includes('spatially grounded co-reasoning prototype')) {
+          li.textContent = 'Developed a co-reasoning prototype that maintains an explicit, revisable understanding of the wearer\'s surrounding task environment across first-person visual input and spatial context.';
+        }
+        if (li.textContent.includes('egocentric VLM semantics')) {
+          li.textContent = 'Combined first-person visual semantics with Quest pose/depth geometry and persistent scene references so the agent can reason over what the wearer is seeing as the task evolves.';
+        }
+        if (li.textContent.includes('perception-grounding pipeline')) {
+          li.textContent = 'Owned research framing, reasoning/state representation, system architecture, first-person scene understanding, interaction design, Unity/Quest implementation, and study instrumentation.';
+        }
+      });
+    }
+  });
+
+  document.querySelectorAll('.cv-tags span').forEach((tag) => {
+    if (tag.textContent.trim() === 'Visual Grounding') tag.textContent = 'Egocentric Video';
   });
 })();
