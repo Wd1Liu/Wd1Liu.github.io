@@ -25,6 +25,18 @@
     }
     .profile-brand-icon.linkedin { color: #0A66C2; }
     .profile-brand-icon.github { color: #181717; }
+    .profile-photo {
+      display: block;
+      width: 160px;
+      height: 225px;
+      object-fit: cover;
+      margin: 0 0 20px;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+    @media (max-width: 900px) {
+      .profile-photo { width: 145px; height: auto; }
+    }
   `;
   document.head.appendChild(style);
 
@@ -54,6 +66,23 @@
   document.querySelectorAll('.tool-logos img').forEach((img) => {
     const src = brandSources[img.alt];
     if (src) img.src = src;
+  });
+
+  const nowPanel = document.querySelector('.now-panel');
+  if (nowPanel && !nowPanel.querySelector('.profile-photo')) {
+    const photo = document.createElement('img');
+    photo.className = 'profile-photo';
+    photo.src = 'assets/profile-photo.svg';
+    photo.alt = 'Bingyi Liu (Edison)';
+    nowPanel.insertBefore(photo, nowPanel.firstChild);
+  }
+
+  document.querySelectorAll('.personal-grid > div').forEach((item) => {
+    const label = item.querySelector('strong')?.textContent.trim();
+    if (label === 'Travel.') {
+      const p = item.querySelector('p');
+      if (p) p.innerHTML = '<strong>Travel.</strong> I love traveling. Credit-card points and perks deserve some of the credit.';
+    }
   });
 
   // Homepage: make the through-line first-person understanding rather than
