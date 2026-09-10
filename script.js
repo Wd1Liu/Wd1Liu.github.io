@@ -73,7 +73,8 @@
   const newsList = document.querySelector('.news-list');
   if (newsList) {
     newsList.innerHTML = `
-      <div class="news-row"><time>Sep. 2026</time><i class="bi bi-hourglass-split"></i><p>Two manuscripts on human–AI interaction in AR are <strong>under review</strong>.</p></div>
+      <div class="news-row"><time>Sep. 2026</time><i class="bi bi-journal-check"></i><p>A paper on planner-validated genetic learning for PDDL planning was <strong>accepted at CSAI 2026</strong>.</p></div>
+      <div class="news-row"><time>Sep. 2026</time><i class="bi bi-send-check"></i><p>Two manuscripts on situated human–AI interaction in AR were <strong>submitted to ACM CHI 2027</strong>.</p></div>
       <div class="news-row"><time>Aug. 2026</time><i class="bi bi-eyeglasses"></i><p>Started working on long-horizon egocentric memory for intelligent eyewear, supervised by <a href="https://jingkangyang.com/" target="_blank" rel="noopener">Dr. Jingkang Yang ↗</a>.</p></div>
       <div class="news-row"><time>May 2026</time><img class="news-brand" src="https://www.google.com/s2/favicons?domain=eyedaptic.com&sz=64" alt="" /><p>Returned to <a href="https://eyedaptic.com/" target="_blank" rel="noopener">Eyedaptic ↗</a> for a second summer, building voice-first agents for AR glasses.</p></div>
       <div class="news-row"><time>Apr. 2026</time><img class="news-brand" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" /><p>Received a <strong>Purdue Summer Undergraduate Research Fellowship (SURF)</strong> with $6,500 in research support.</p></div>`;
@@ -99,14 +100,17 @@
     const bodyParagraphs = row.querySelectorAll('.research-body > p');
     const role = row.querySelector('.role-line');
     const metaSpans = row.querySelectorAll('.research-meta > span');
+    const status = row.querySelector('.status');
 
     if (title === 'Situated human–AI reasoning in AR') {
+      if (status) status.innerHTML = '<i class="bi bi-send-check"></i>Submitted · ACM CHI 2027';
       if (question) question.textContent = 'How can an AR agent reason over the same physical task as the wearer without hiding the state it is using?';
       if (bodyParagraphs[1]) bodyParagraphs[1].textContent = "I built a stateful, tool-using reasoning agent that combines first-person scene context with persistent spatial state. It can choose when to observe, query spatial information, or ask the wearer, while separating generative reasoning from deterministic execution so corrections revise only the reasoning branches that depend on them.";
       if (role) role.innerHTML = '<strong>My role:</strong> research framing, agent architecture, state/memory design, first-person 2D/3D scene understanding, human-in-the-loop interaction, Unity/Quest implementation, and study instrumentation.';
     }
 
     if (title === 'In-situ authoring for embodied agents in AR') {
+      if (status) status.innerHTML = '<i class="bi bi-send-check"></i>Submitted · ACM CHI 2027';
       if (question) question.textContent = 'How can people author spatial agent behavior without translating what they mean in the room into low-level scripts?';
       if (bodyParagraphs[1]) bodyParagraphs[1].textContent = 'I introduced an experience–episode–unit interaction graph for representing spatial context, agent behavior, and conditional transitions, paired with a dual-view AR workflow for in-situ authoring and world-in-miniature overview. A multimodal compiler/runtime turns speech, gaze, pointing, and pose into executable agent behavior.';
       if (role) role.innerHTML = '<strong>My role:</strong> interaction representation, authoring workflow, multimodal compiler/runtime, Unity/Meta Quest implementation, and evaluation. A two-session study with 12 participants achieved a 79.8 ± 10.8 SUS score.';
@@ -166,6 +170,22 @@
   const cvHeaderResearch = [...document.querySelectorAll('.cv-header p')].find((p) => p.textContent.includes('Research:'));
   if (cvHeaderResearch) cvHeaderResearch.innerHTML = '<strong>Research:</strong> Human–AI Interaction · Spatial &amp; Egocentric AI · XR &amp; Wearable Computing';
 
+  const cvSections = [...document.querySelectorAll('.cv-section')];
+  const educationSection = cvSections.find((s) => s.querySelector('h2')?.textContent.trim() === 'Education');
+  const hasPublicationSection = cvSections.some((s) => s.querySelector('h2')?.textContent.trim() === 'Publications');
+  if (educationSection && !hasPublicationSection) {
+    const section = document.createElement('section');
+    section.className = 'cv-section';
+    section.innerHTML = `
+      <h2>Publications</h2>
+      <div class="cv-entry">
+        <h3>Planner-Validated Genetic Learning of Lifted Goal Agendas for Goal-Dependent PDDL Planning</h3>
+        <div class="date">Accepted · CSAI 2026</div>
+        <div class="role">Yiwei Li, Zhitong Guo, <strong>Bingyi Liu</strong>, and Yan Li</div>
+      </div>`;
+    educationSection.insertAdjacentElement('afterend', section);
+  }
+
   document.querySelectorAll('.cv-entry').forEach((entry) => {
     const heading = entry.querySelector('h3')?.textContent || '';
     if (heading === 'Purdue University') {
@@ -183,6 +203,9 @@
       if (items[1]) items[1].textContent = 'Engineered a reproducible Jetson Orin inference/profiling stack with standardized warm-up, CUDA-synchronized timing, mixed precision, and GPU-memory measurement.';
     }
     if (heading.includes('C Design Lab')) {
+      const projects = entry.querySelectorAll('.project');
+      if (projects[0]) projects[0].innerHTML = 'Situated Human–Agent Co-Reasoning in AR <span class="review">[Submitted to ACM CHI 2027]</span>';
+      if (projects[1]) projects[1].innerHTML = 'In-Situ Authoring for Embodied Agents in AR <span class="review">[Submitted to ACM CHI 2027]</span>';
       const items = entry.querySelectorAll('li');
       if (items[0]) items[0].textContent = 'Architected a stateful, tool-using reasoning agent for situated AR tasks, separating generative reasoning from deterministic execution while maintaining persistent spatial task state.';
       if (items[1]) items[1].textContent = 'Built persistent spatial state/memory over first-person visual context and Quest pose/depth information, with versioned updates that prevent stale or duplicate actions from committing.';
@@ -204,9 +227,9 @@
     }
   });
 
-  const cvSections = [...document.querySelectorAll('.cv-section')];
-  const technicalSection = cvSections.find((s) => s.querySelector('h2')?.textContent.trim() === 'Technical Skills');
-  const hasSelectedProjects = cvSections.some((s) => s.querySelector('h2')?.textContent.trim() === 'Selected Projects');
+  const refreshedCvSections = [...document.querySelectorAll('.cv-section')];
+  const technicalSection = refreshedCvSections.find((s) => s.querySelector('h2')?.textContent.trim() === 'Technical Skills');
+  const hasSelectedProjects = refreshedCvSections.some((s) => s.querySelector('h2')?.textContent.trim() === 'Selected Projects');
   if (technicalSection && !hasSelectedProjects) {
     const section = document.createElement('section');
     section.className = 'cv-section';
