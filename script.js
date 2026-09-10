@@ -73,8 +73,8 @@
   const newsList = document.querySelector('.news-list');
   if (newsList) {
     newsList.innerHTML = `
-      <div class="news-row"><time>Sep. 2026</time><i class="bi bi-journal-check"></i><p>A paper on planner-validated genetic learning for PDDL planning was <strong>accepted at CSAI 2026</strong>.</p></div>
       <div class="news-row"><time>Sep. 2026</time><i class="bi bi-send-check"></i><p>Two manuscripts on situated human–AI interaction in AR were <strong>submitted to ACM CHI 2027</strong>.</p></div>
+      <div class="news-row"><time>Aug. 2026</time><i class="bi bi-journal-check"></i><p>A paper on planner-validated genetic learning for PDDL planning was <strong>accepted at CSAI 2026</strong>.</p></div>
       <div class="news-row"><time>Aug. 2026</time><i class="bi bi-eyeglasses"></i><p>Started working on long-horizon egocentric memory for intelligent eyewear, supervised by <a href="https://jingkangyang.com/" target="_blank" rel="noopener">Dr. Jingkang Yang ↗</a>.</p></div>
       <div class="news-row"><time>May 2026</time><img class="news-brand" src="https://www.google.com/s2/favicons?domain=eyedaptic.com&sz=64" alt="" /><p>Returned to <a href="https://eyedaptic.com/" target="_blank" rel="noopener">Eyedaptic ↗</a> for a second summer, building voice-first agents for AR glasses.</p></div>
       <div class="news-row"><time>Apr. 2026</time><img class="news-brand" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" /><p>Received a <strong>Purdue Summer Undergraduate Research Fellowship (SURF)</strong> with $6,500 in research support.</p></div>`;
