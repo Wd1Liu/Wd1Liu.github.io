@@ -63,10 +63,10 @@
   if (introMain) {
     const copies = introMain.querySelectorAll('.intro-copy');
     if (copies[0]) {
-      copies[0].innerHTML = 'I\'m a senior undergraduate in Computer Science at Purdue University. I work with <a href="https://engineering.purdue.edu/~ramani/wordpress/about/" target="_blank" rel="noopener">Prof. Karthik Ramani ↗</a> in the C Design Lab on human–AI interaction and AR agents, and with <a href="https://jingkangyang.com/" target="_blank" rel="noopener">Dr. Jingkang Yang ↗</a> on long-horizon egocentric AI for intelligent eyewear. Previously, I worked with Prof. Yung-Hsiang Lu on generative modeling and edge AI, and spent two summers at <a href="https://eyedaptic.com/" target="_blank" rel="noopener">Eyedaptic ↗</a> building AI systems for AR glasses.';
+      copies[0].innerHTML = 'I\'m a senior undergraduate in Computer Science at Purdue University. I work with <a href="https://engineering.purdue.edu/~ramani/wordpress/about/" target="_blank" rel="noopener">Prof. Karthik Ramani ↗</a> in the C Design Lab on human–AI interaction and AR agents, and with <a href="https://jingkangyang.com/" target="_blank" rel="noopener">Dr. Jingkang Yang ↗</a> on long-horizon egocentric memory and scalable data infrastructure for embodied agents. Previously, I worked with Prof. Yung-Hsiang Lu on generative modeling and edge AI, and spent two summers at <a href="https://eyedaptic.com/" target="_blank" rel="noopener">Eyedaptic ↗</a> building AI systems for AR glasses.';
     }
     if (copies[1]) {
-      copies[1].textContent = 'My current interests are human-centered agents for the physical world: how AI can understand a 3D environment well enough to reason about and carry out tasks in it, and how smart glasses can become a low-friction interface for capable agents that continuously share the user’s point of view. I’m also studying how egocentric video can help embodied agents build persistent understanding of the physical world and carry out tasks over time.';
+      copies[1].textContent = 'My current interests are human-centered agents for the physical world: how AI can understand a 3D environment well enough to reason about and carry out tasks in it, and how smart glasses can become a low-friction interface for capable agents that continuously share the user’s point of view. I’m also studying how long-horizon first-person experience can serve two roles at once: persistent memory for agents and structured, action-centric training data for embodied learning.';
     }
   }
 
@@ -75,7 +75,7 @@
     newsList.innerHTML = `
       <div class="news-row"><time>Sep. 2026</time><i class="bi bi-send-check"></i><p>Two manuscripts on situated human–AI interaction in AR were <strong>submitted to ACM CHI 2027</strong>.</p></div>
       <div class="news-row"><time>Aug. 2026</time><i class="bi bi-journal-check"></i><p>A paper on planner-validated genetic learning for PDDL planning was <strong>accepted at CSAI 2026</strong>.</p></div>
-      <div class="news-row"><time>Aug. 2026</time><i class="bi bi-eyeglasses"></i><p>Started working on long-horizon egocentric memory for intelligent eyewear, supervised by <a href="https://jingkangyang.com/" target="_blank" rel="noopener">Dr. Jingkang Yang ↗</a>.</p></div>
+      <div class="news-row"><time>Aug. 2026</time><i class="bi bi-eyeglasses"></i><p>Started working on long-horizon egocentric memory and scalable first-person data infrastructure for embodied agents, supervised by <a href="https://jingkangyang.com/" target="_blank" rel="noopener">Dr. Jingkang Yang ↗</a>.</p></div>
       <div class="news-row"><time>May 2026</time><img class="news-brand" src="https://www.google.com/s2/favicons?domain=eyedaptic.com&sz=64" alt="" /><p>Returned to <a href="https://eyedaptic.com/" target="_blank" rel="noopener">Eyedaptic ↗</a> for a second summer, building voice-first agents for AR glasses.</p></div>
       <div class="news-row"><time>Apr. 2026</time><img class="news-brand" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" /><p>Received a <strong>Purdue Summer Undergraduate Research Fellowship (SURF)</strong> with $6,500 in research support.</p></div>`;
   }
