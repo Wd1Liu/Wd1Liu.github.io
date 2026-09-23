@@ -57,6 +57,10 @@
       const p = item.querySelector('p');
       if (p) p.innerHTML = '<strong>Travel.</strong> I love traveling. Credit-card points and perks deserve some of the credit.';
     }
+    if (label === 'Music.') {
+      const p = item.querySelector('p');
+      if (p) p.innerHTML = '<strong>Music.</strong> Usually when I am working.';
+    }
   });
 
   const introMain = document.querySelector('.intro-main');
@@ -113,7 +117,7 @@
       if (status) status.innerHTML = '<i class="bi bi-send-check"></i>Submitted · ACM CHI 2027';
       if (question) question.textContent = 'How can people author spatial agent behavior without translating what they mean in the room into low-level scripts?';
       if (bodyParagraphs[1]) bodyParagraphs[1].textContent = 'I introduced an experience–episode–unit interaction graph for representing spatial context, agent behavior, and conditional transitions, paired with a dual-view AR workflow for in-situ authoring and world-in-miniature overview. A multimodal compiler/runtime turns speech, gaze, pointing, and pose into executable agent behavior.';
-      if (role) role.innerHTML = '<strong>My role:</strong> interaction representation, authoring workflow, multimodal compiler/runtime, Unity/Meta Quest implementation, and evaluation. A two-session study with 12 participants achieved a 79.8 ± 10.8 SUS score.';
+      if (role) role.innerHTML = '<strong>My role:</strong> interaction representation, authoring workflow, multimodal compiler/runtime, Unity/Meta Quest implementation, and evaluation.';
     }
 
     if (title === 'Contact-aware 3D piano hand motion generation') {
@@ -126,14 +130,14 @@
       if (h3) h3.textContent = 'Compositional and hardware-aware evaluation of text-to-image models';
       if (metaSpans[1]) metaSpans[1].textContent = '2025 — May 2026';
       if (question) question.textContent = 'How much of a model’s apparent image quality survives when we test compositional correctness and real edge-inference cost?';
-      if (bodyParagraphs[1]) bodyParagraphs[1].textContent = 'I benchmarked seven generators across object, count, attribute, spatial-relation, and style factors, fine-tuned CLIP into a task-specific semantic-alignment classifier, and built a reproducible Jetson Orin inference/profiling stack with standardized warm-up, CUDA-synchronized timing, mixed precision, and GPU-memory measurement.';
+      if (bodyParagraphs[1]) bodyParagraphs[1].textContent = 'I benchmarked text-to-image generators across object, count, attribute, spatial-relation, and style factors, adapted CLIP into a task-specific semantic-alignment evaluator, and built a reproducible Jetson Orin inference/profiling stack with standardized timing and GPU-memory measurement.';
       if (role) role.innerHTML = '<strong>My role:</strong> benchmark design, prompt taxonomy, CLIP adaptation, automated evaluation, edge deployment, and inference profiling.';
     }
 
     if (title === 'Voice-first video assistance for AR glasses') {
       if (question) question.textContent = 'What changes when a voice assistant on glasses can keep state, use tools, and remember what the user tends to choose?';
-      if (bodyParagraphs[1]) bodyParagraphs[1].textContent = "At Eyedaptic, I architected a stateful, tool-using voice agent for AR glasses, orchestrating 20+ typed tools through Gemini Live for search, refinement, selection, history resume, and playback. I also built a retrieval/personalization layer with multi-signal reranking, channel-aware context, and local behavioral memory.";
-      if (role) role.innerHTML = '<strong>My role:</strong> agent/tool architecture, retrieval and ranking, personalization memory, Android/backend integration, and evaluation. Mean top-1 ranking score improved from 0.182 to 0.604 across a 10-scenario test set.';
+      if (bodyParagraphs[1]) bodyParagraphs[1].textContent = "At Eyedaptic, I architected a stateful, tool-using voice agent for AR glasses, using typed tools for search, refinement, selection, history resume, and playback. I also built a retrieval and personalization layer with multi-signal reranking, channel-aware context, and local behavioral memory.";
+      if (role) role.innerHTML = '<strong>My role:</strong> agent/tool architecture, retrieval and ranking, personalization memory, Android/backend integration, and evaluation.';
     }
   });
 
