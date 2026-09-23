@@ -89,10 +89,10 @@
     <section class="lens-section section-rule shell" aria-label="Research lens">
       <div class="section-label"><i class="bi bi-compass"></i><span>Research lens</span></div>
       <div class="lens-grid">
-        <div><i class="bi bi-eye"></i><strong>Perceive</strong><p>Find the right objects and ground them in the scene.</p></div>
-        <div><i class="bi bi-clock-history"></i><strong>Remember</strong><p>Keep the events and state changes that matter later.</p></div>
-        <div><i class="bi bi-diagram-3"></i><strong>Reason</strong><p>Retrieve evidence, check it, and decide what to do next.</p></div>
-        <div><i class="bi bi-people"></i><strong>Collaborate</strong><p>Let the user see, steer, and correct what matters.</p></div>
+        <div><i class="bi bi-eye"></i><strong>Perceive</strong><p>Understand the wearer\'s surrounding 3D world and continuous first-person video.</p></div>
+        <div><i class="bi bi-clock-history"></i><strong>Remember</strong><p>Carry forward the events, entities, and state changes that matter as a task or experience unfolds.</p></div>
+        <div><i class="bi bi-diagram-3"></i><strong>Reason</strong><p>Use first-person context to decide what information or action is needed next.</p></div>
+        <div><i class="bi bi-people"></i><strong>Collaborate</strong><p>Keep people in control through lightweight input, correction, and shared task state.</p></div>
       </div>
     </section>
 
@@ -103,12 +103,12 @@
 
       <div class="research-list">
         <article class="research-row">
-          <div class="research-meta"><span>Human–AI · XR</span><span>2026 — Present</span><span class="status"><i class="bi bi-hourglass-split"></i>Under review</span></div>
+          <div class="research-meta"><span>Human–AI · XR</span><span>2026 — Present</span><span class="status"><i class="bi bi-send-check"></i>Submitted · ACM CHI 2027</span></div>
           <div class="research-body">
             <h3>Situated human–AI reasoning in AR</h3>
-            <p class="research-question">An AR assistant can give plausible guidance while the user has no idea what it actually saw or what part of the scene its answer depends on.</p>
-            <p>I built a Quest-based prototype that keeps task-relevant observations, interpretations, and user corrections as explicit task state instead of burying everything in chat history. Visual claims are tied to detector-backed references and Quest geometry, and a correction only revises the parts of the task state that depend on it.</p>
-            <p class="role-line"><strong>My role:</strong> research framing, state representation, system architecture, perception and grounding, interaction design, Unity/Quest implementation, and study instrumentation.</p>
+            <p class="research-question">How can an AR agent reason over the same physical task as the wearer without hiding the state it is using?</p>
+            <p>I built a stateful, tool-using reasoning agent that combines first-person scene context with persistent spatial state. It can choose when to observe, query spatial information, or ask the wearer, while separating generative reasoning from deterministic execution so corrections revise only the reasoning branches that depend on them.</p>
+            <p class="role-line"><strong>My role:</strong> research framing, agent architecture, state/memory design, first-person 2D/3D scene understanding, human-in-the-loop interaction, Unity/Quest implementation, and study instrumentation.</p>
             <div class="context-line"><a class="org-link" href="https://engineering.purdue.edu/cdesign/wp/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" />Purdue C Design Lab ↗</a> · advised by <a href="https://engineering.purdue.edu/~ramani/wordpress/about/" target="_blank" rel="noopener">Prof. Karthik Ramani ↗</a></div>
           </div>
         </article>
@@ -117,9 +117,9 @@
           <div class="research-meta"><span>XR Authoring · Agents</span><span>2025 — 2026</span><span class="status"><i class="bi bi-hourglass-split"></i>Under review</span></div>
           <div class="research-body">
             <h3>In-situ authoring for embodied agents in AR</h3>
-            <p class="research-question">Desktop authoring gets awkward when an interaction depends on what someone is looking at, pointing to, or doing in the room.</p>
-            <p>I designed a dual-view workflow that lets creators define interactions in the physical scene while editing the larger task structure in a world-in-miniature. I also built the multimodal compiler/runtime that turns speech, gaze, pointing, and user pose into grounded references and executable agent behavior.</p>
-            <p class="role-line"><strong>My role:</strong> interaction concept, task representation, multimodal compiler/runtime, Unity/Meta Quest implementation, and evaluation. A two-session study with 12 participants achieved a 79.8 ± 10.8 SUS score.</p>
+            <p class="research-question">How can people author spatial agent behavior without translating what they mean in the room into low-level scripts?</p>
+            <p>I introduced an experience–episode–unit interaction graph for representing spatial context, agent behavior, and conditional transitions, paired with a dual-view AR workflow for in-situ authoring and world-in-miniature overview. A multimodal compiler/runtime turns speech, gaze, pointing, and pose into executable agent behavior.</p>
+            <p class="role-line"><strong>My role:</strong> interaction representation, authoring workflow, multimodal compiler/runtime, Unity/Meta Quest implementation, and evaluation.</p>
             <div class="context-line"><a class="org-link" href="https://engineering.purdue.edu/cdesign/wp/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" />Purdue C Design Lab ↗</a> · advised by <a href="https://engineering.purdue.edu/~ramani/wordpress/about/" target="_blank" rel="noopener">Prof. Karthik Ramani ↗</a></div>
           </div>
         </article>
@@ -137,23 +137,23 @@
         </article>
 
         <article class="research-row">
-          <div class="research-meta"><span>3D Generation · Evaluation</span><span>2025 — Present</span></div>
+          <div class="research-meta"><span>3D Generation · Evaluation</span><span>2025 — May 2026</span></div>
           <div class="research-body">
-            <h3>Contact-aware 3D piano hand motion generation</h3>
+            <h3>Accuracy-oriented 3D piano hand motion generation</h3>
             <p class="research-question">A hand pose can look plausible and still press the wrong key.</p>
             <p>I reframed MIDI-conditioned hand-motion generation around time-indexed 3D key-contact targets and developed contact-aware flow-matching objectives. I also built a hard-passage evaluation for large jumps, dense chords, and fast transitions, where wrong fingers and timing errors are much easier to expose.</p>
-            <p class="role-line"><strong>My role:</strong> problem formulation, target representation, learning objectives, event-local refinement, and task-specific evaluation.</p>
+            <p class="role-line"><strong>My role:</strong> project lead; problem formulation, target representation, learning objectives, event-local refinement, and task-specific evaluation.</p>
             <div class="context-line"><a class="org-link" href="https://engineering.purdue.edu/ECE/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" />Purdue ECE ↗</a> · advised by <a href="https://engineering.purdue.edu/ECE/People/Faculty/ptProfile?group_id=2571&resource_id=3355" target="_blank" rel="noopener">Prof. Yung-Hsiang Lu ↗</a></div>
           </div>
         </article>
 
         <article class="research-row">
-          <div class="research-meta"><span>Generative AI · Edge AI</span><span>2025 — Present</span></div>
+          <div class="research-meta"><span>Generative AI · Edge AI</span><span>2025 — May 2026</span></div>
           <div class="research-body">
-            <h3>Hardware-aware evaluation of text-to-image models</h3>
-            <p class="research-question">A model can win on image quality and still be a bad choice once you run it on an edge device.</p>
-            <p>I built a benchmark for seven text-to-image models that puts semantic alignment and perceptual quality next to end-to-end latency and peak GPU memory. I deployed every model on NVIDIA Jetson Orin so the quality-versus-cost trade-off is measured on the same hardware.</p>
-            <p class="role-line"><strong>My role:</strong> benchmark design, prompt taxonomy, automated evaluators, edge deployment, and systems profiling.</p>
+            <h3>Compositional and hardware-aware evaluation of text-to-image models</h3>
+            <p class="research-question">How much of a model’s apparent image quality survives when we test compositional correctness and real edge-inference cost?</p>
+            <p>I benchmarked text-to-image generators across object, count, attribute, spatial-relation, and style factors, adapted CLIP into a task-specific semantic-alignment evaluator, and built a reproducible Jetson Orin inference/profiling stack with standardized timing and GPU-memory measurement.</p>
+            <p class="role-line"><strong>My role:</strong> benchmark design, prompt taxonomy, CLIP adaptation, automated evaluation, edge deployment, and inference profiling.</p>
             <div class="context-line"><a class="org-link" href="https://engineering.purdue.edu/ECE/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" />Purdue ECE ↗</a> · advised by <a href="https://engineering.purdue.edu/ECE/People/Faculty/ptProfile?group_id=2571&resource_id=3355" target="_blank" rel="noopener">Prof. Yung-Hsiang Lu ↗</a></div>
           </div>
         </article>
@@ -163,22 +163,22 @@
           <div class="research-body">
             <h3>Voice-first video assistance for AR glasses</h3>
             <p class="research-question">On glasses, a vague voice request can't always fall back to a search-results screen.</p>
-            <p>At <a href="https://eyedaptic.com/" target="_blank" rel="noopener">Eyedaptic ↗</a>, I built an assistant that handles search, clarification, selection, resume, and playback through voice and typed tools. I also designed a two-stage retrieval and reranking pipeline over candidate videos, metadata, channel context, and local behavioral memory.</p>
-            <p class="role-line"><strong>My role:</strong> agent/tool architecture, retrieval and ranking, personalization memory, Android/backend integration, and scenario evaluation. Mean top-1 score improved from 0.182 to 0.604 across a 10-scenario test set.</p>
+            <p>At <a href="https://eyedaptic.com/" target="_blank" rel="noopener">Eyedaptic ↗</a>, I architected a stateful, tool-using voice agent for AR glasses, using typed tools for search, refinement, selection, history resume, and playback. I also built a retrieval and personalization layer with multi-signal reranking, channel-aware context, and local behavioral memory.</p>
+            <p class="role-line"><strong>My role:</strong> agent/tool architecture, retrieval and ranking, personalization memory, Android/backend integration, and evaluation.</p>
           </div>
         </article>
       </div>
 
-      <div class="prototype-note"><i class="bi bi-tools"></i><strong>Prototype work.</strong> I also build small smart-glasses agents to test ideas around visual grounding, cross-frame retrieval, and tool execution before deciding whether they are worth turning into a larger study.</div>
+      <div class="direction-note"><strong>Where I\'m pushing next.</strong> I\'m especially interested in agents that can build a useful understanding of a 3D environment and carry out tasks inside it—a capability that also matters for embodied intelligence—and in smart-glasses agents that can turn persistent first-person context into useful action with very little user input.</div>
     </section>
 
     <section class="section section-rule shell" id="experience">
       <div class="section-head compact-head"><div><p class="eyebrow">Experience</p><h2>Research and engineering.</h2></div></div>
       <div class="experience-list">
-        <article class="experience-item"><div class="experience-when">2025 — Present</div><div><h3><a class="org-link" href="https://engineering.purdue.edu/cdesign/wp/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" />Purdue C Design Lab ↗</a></h3><p class="role">Undergraduate Research Assistant · <a href="https://engineering.purdue.edu/~ramani/wordpress/about/" target="_blank" rel="noopener">Prof. Karthik Ramani ↗</a></p><p>AR, human–AI interaction, spatial grounding, and agent authoring.</p></div></article>
+        <article class="experience-item"><div class="experience-when">2025 — Present</div><div><h3><a class="org-link" href="https://engineering.purdue.edu/cdesign/wp/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" />Purdue C Design Lab ↗</a></h3><p class="role">Undergraduate Research Assistant · <a href="https://engineering.purdue.edu/~ramani/wordpress/about/" target="_blank" rel="noopener">Prof. Karthik Ramani ↗</a></p><p>Human–AI reasoning, AR agents, first-person/3D scene understanding, and spatial interaction.</p></div></article>
         <article class="experience-item"><div class="experience-when">2026 — Present</div><div><h3>Stealth AI Startup</h3><p class="role">Egocentric AI Research Intern · <a href="https://jingkangyang.com/" target="_blank" rel="noopener">Dr. Jingkang Yang ↗</a></p><p>Long-horizon egocentric memory and scalable data infrastructure that turns first-person video into structured training signals for embodied agents.</p></div></article>
-        <article class="experience-item"><div class="experience-when">2025 — Present</div><div><h3><a class="org-link" href="https://engineering.purdue.edu/ECE/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" />Purdue University · Elmore Family School of ECE ↗</a></h3><p class="role">Research Assistant · <a href="https://engineering.purdue.edu/ECE/People/Faculty/ptProfile?group_id=2571&resource_id=3355" target="_blank" rel="noopener">Prof. Yung-Hsiang Lu ↗</a></p><p>Generative-model evaluation on edge hardware and contact-aware 3D motion generation.</p></div></article>
-        <article class="experience-item"><div class="experience-when">Summers 2025 & 2026</div><div><h3><a class="org-link" href="https://eyedaptic.com/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=eyedaptic.com&sz=64" alt="" />Eyedaptic ↗</a></h3><p class="role">AI Software Engineer Intern</p><p>Voice-first and multimodal AI features for AR glasses.</p></div></article>
+        <article class="experience-item"><div class="experience-when">Feb. 2025 — May 2026</div><div><h3><a class="org-link" href="https://engineering.purdue.edu/ECE/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" />Purdue University · Elmore Family School of ECE ↗</a></h3><p class="role">Research Assistant · <a href="https://engineering.purdue.edu/ECE/People/Faculty/ptProfile?group_id=2571&resource_id=3355" target="_blank" rel="noopener">Prof. Yung-Hsiang Lu ↗</a></p><p>Generative-model evaluation on edge hardware and contact-aware 3D motion generation.</p></div></article>
+        <article class="experience-item"><div class="experience-when">Summers 2025 & 2026</div><div><h3><a class="org-link" href="https://eyedaptic.com/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=eyedaptic.com&sz=64" alt="" />Eyedaptic ↗</a></h3><p class="role">AI Software Engineer Intern</p><p>Stateful voice agents and real-time multimodal assistance for AR glasses.</p></div></article>
         <article class="experience-item subdued"><div class="experience-when">Earlier</div><div><h3><a class="org-link" href="https://engineering.purdue.edu/~ips/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=purdue.edu&sz=64" alt="" />Purdue VIPER Lab ↗</a> · <a class="org-link" href="https://www.tongchengir.com/en/" target="_blank" rel="noopener"><img class="brand-mark" src="https://www.google.com/s2/favicons?domain=tongchengir.com&sz=64" alt="" />Tongcheng Travel ↗</a></h3><p>Mobile computer vision, Android data pipelines, and production backend systems.</p></div></article>
       </div>
     </section>
@@ -188,9 +188,9 @@
         <div class="about-copy">
           <p class="eyebrow">About</p>
           <h2>More than research &amp; coursework.</h2>
-          <p>I'm probably more interested in products than in any one technology. What interests me most is the psychology underneath them. People are different, but many patterns repeat: what draws attention, what feels familiar, how expectations form, when uncertainty turns into friction, and why some interactions feel obvious while others do not.</p>
-          <p>When I think about a product, I usually start there. I try to build a rough model of the person before the interface—what they are likely to notice, assume, trust, ignore, or do next—and then design around those tendencies.</p>
-          <p>I also like taking ideas end to end, because building is a good way to test whether that model of the person was actually right.</p>
+          <p>I'm probably more interested in products than in any one technology. What interests me most is the psychology underneath them: people differ, but patterns in attention, expectation, habit, trust, and hesitation repeat more often than we think.</p>
+          <p>I usually start by building a rough model of the person before the interface—what they are likely to notice, assume, ignore, or do next—and then ask what the product should make easier or disappear entirely.</p>
+          <p>That is part of why smart glasses interest me. If agents become good enough at understanding first-person context and using tools, a very small amount of input could unlock useful experiences without repeatedly pulling someone back to a screen.</p>
 
           <div class="personal-block">
             <h3>How I think</h3>
@@ -206,7 +206,7 @@
             <div class="personal-grid">
               <div><i class="bi bi-music-note-beamed"></i><p><strong>Music.</strong> Usually on when I'm working.</p></div>
               <div><img class="club-mark" src="https://www.google.com/s2/favicons?domain=fcbayern.com&sz=64" alt="" /><p><strong>Football.</strong> Bayern Munich.</p></div>
-              <div><i class="bi bi-airplane"></i><p><strong>Travel.</strong> I travel whenever I can. I like seeing how different places solve the same everyday problems.</p></div>
+              <div><i class="bi bi-airplane"></i><p><strong>Travel.</strong> I love traveling. Credit-card points and perks deserve some of the credit.</p></div>
               <div><i class="bi bi-water"></i><p><strong>Lakeside time.</strong> A quiet lake and a few hours with nothing planned is hard to beat.</p></div>
             </div>
           </div>
