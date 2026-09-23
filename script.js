@@ -59,7 +59,7 @@
     }
     if (label === 'Music.') {
       const p = item.querySelector('p');
-      if (p) p.innerHTML = '<strong>Music.</strong> Usually when I am working.';
+      if (p) p.innerHTML = '<strong>Music.</strong> Usually when I am thinking.';
     }
   });
 
